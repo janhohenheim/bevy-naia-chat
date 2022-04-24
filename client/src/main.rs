@@ -3,7 +3,7 @@
 
 use bevy::prelude::{App, ClearColor, Color, Msaa, WindowDescriptor};
 use bevy::DefaultPlugins;
-use bevy_game::GamePlugin;
+use client::GamePlugin;
 #[cfg(feature = "dev")]
 use bevy_inspector_egui::WorldInspectorPlugin;
 

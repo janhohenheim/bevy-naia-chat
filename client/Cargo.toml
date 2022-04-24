@@ -1,0 +1,41 @@
+[package]
+name = "client" # ToDo
+version = "0.1.0"
+publish = false
+authors = ["Jan Hohenheim <jan@hohenheim.ch>"]
+edition = "2021"
+
+[features]
+default = [
+    "bevy/bevy_winit",
+    "bevy/render",
+    "bevy/png",
+    "bevy/x11",
+    "bevy_kira_audio/ogg"
+]
+
+dev = [
+    "bevy/dynamic",
+    "bevy-inspector-egui",
+    "bevy_editor_pls"
+]
+
+[dependencies]
+bevy = { version = "0.7", default-features = false }
+bevy_kira_audio = { version = "0.9" }
+bevy_asset_loader = { version = "0.10" }
+bevy-inspector-egui = { version = "0.10", optional = true }
+bevy_editor_pls = { git = "https://github.com/jakobhellermann/bevy_editor_pls", optional = true }
+rand = "0.8.3"
+naia-bevy-client = "0.10.1"
+shared = { path = "../shared" }
+
+[target.'cfg(target_os = "linux")'.dependencies]
+winit = { version = "0.25", features=["x11"]}
+
+[build-dependencies]
+embed-resource = "1.4"
+
+
+[target.'cfg(target_arch = "wasm32")'.dependencies]
+wasm-bindgen = { version = "0.2" }
