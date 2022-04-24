@@ -15,10 +15,10 @@ default = [
 ]
 
 dev = [
-    # not supported for wasm32-unknown-unknown
-    # "bevy/dynamic",
+    "bevy/dynamic",
     "bevy-inspector-egui",
-    "bevy_editor_pls"
+    "bevy_editor_pls",
+    "shared/dev"
 ]
 
 [dependencies]

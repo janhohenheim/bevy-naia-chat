@@ -20,9 +20,9 @@ linker = "rust-lld.exe"
 rustflags = ["-Zshare-generics=n"]
 
 [alias]
-serve = "run --features dev --target wasm32-unknown-unknown -p client"
-build-client = "build --features dev --target wasm32-unknown-unknown -p client"
-build-server = "build --features use-webrtc dev -p server"
+serve = "run --target wasm32-unknown-unknown -p client"
+build-client = "build --features dev -p client"
+build-server = "build --features dev --features use-udp -p server"
 
 [target.wasm32-unknown-unknown]
 runner = "wasm-server-runner"

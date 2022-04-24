@@ -17,7 +17,8 @@ default = [
 dev = [
     "bevy/dynamic",
     "bevy-inspector-egui",
-    "bevy_editor_pls"
+    "bevy_editor_pls",
+    "shared/dev"
 ]
 
 use-udp = [ "naia-bevy-server/use-udp" ]
@@ -38,4 +39,3 @@ winit = { version = "0.25", features=["x11"]}
 
 [build-dependencies]
 embed-resource = "1.4"
-

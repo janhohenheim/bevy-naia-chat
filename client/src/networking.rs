@@ -1,12 +1,12 @@
 mod events;
 use bevy::prelude::*;
-use naia_bevy_client::{ClientConfig, Plugin as ClientPlugin, Stage};
+use naia_bevy_client::{Client, ClientConfig, Plugin as ClientPlugin, Stage};
 use shared::{protocol, shared_config, Channels, Protocol};
 
 pub struct NetworkingPlugin;
 
 impl Plugin for NetworkingPlugin {
-    fn build(&self, app: &mut AppBuilder) {
+    fn build(&self, app: &mut App) {
         app.add_plugin(ClientPlugin::<Protocol, Channels>::new(
             ClientConfig::default(),
             shared_config(),
