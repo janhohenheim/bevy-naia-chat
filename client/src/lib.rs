@@ -14,6 +14,8 @@ use crate::player::PlayerPlugin;
 
 use bevy::app::App;
 use bevy::prelude::*;
+use naia_bevy_client::{ClientConfig, Plugin as ClientPlugin, Stage};
+use shared::{shared_config, Channels, Protocol};
 
 // This example game uses States to separate logic
 // See https://bevy-cheatbook.github.io/programming/states.html
@@ -38,6 +40,10 @@ impl Plugin for GamePlugin {
             .add_plugin(ActionsPlugin)
             .add_plugin(InternalAudioPlugin)
             .add_plugin(PlayerPlugin)
-            .add_plugin(DevPlugin);
+            .add_plugin(DevPlugin)
+            .add_plugin(ClientPlugin::<Protocol, Channels>::new(
+                ClientConfig::default(),
+                shared_config(),
+            ));
     }
 }
