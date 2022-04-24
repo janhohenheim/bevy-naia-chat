@@ -19,15 +19,25 @@ rustflags = ["-C", "link-arg=-fuse-ld=/usr/local/bin/zld", "-Zshare-generics=y"]
 linker = "rust-lld.exe"
 rustflags = ["-Zshare-generics=n"]
 
-# Optional: Uncommenting the following improves compile times, but reduces the amount of debug info to 'line number tables only'
-# In most cases the gains are negligible, but if you are on macos and have slow compile times you should see significant gains.
-#[profile.dev]
-#debug = 1
-
 [alias]
-serve = "run --target wasm32-unknown-unknown -p client"
-build-client = "build --target wasm32-unknown-unknown -p client"
-build-server = "build -p server --features use-webrtc"
+serve = "run --features dev --target wasm32-unknown-unknown -p client"
+build-client = "build --features dev --target wasm32-unknown-unknown -p client"
+build-server = "build --features use-webrtc dev -p server"
 
 [target.wasm32-unknown-unknown]
 runner = "wasm-server-runner"
+
+# Enable only a small amount of optimization in debug mode
+[profile.dev]
+opt-level = 1
+# Optional: Uncommenting the following improves compile times, but reduces the amount of debug info to 'line number tables only'
+# In most cases the gains are negligible, but if you are on macos and have slow compile times you should see significant gains.
+debug = 1
+
+# Enable high optimizations for dependencies (incl. Bevy), but not for our code:
+[profile.dev.package."*"]
+opt-level = 3
+
+[profile.release]
+lto = "thin"
+codegen-units = 1

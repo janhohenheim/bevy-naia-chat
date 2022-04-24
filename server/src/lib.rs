@@ -3,6 +3,7 @@ mod audio;
 mod dev;
 mod loading;
 mod menu;
+mod networking;
 mod player;
 
 use crate::actions::ActionsPlugin;
@@ -10,12 +11,11 @@ use crate::audio::InternalAudioPlugin;
 use crate::dev::DevPlugin;
 use crate::loading::LoadingPlugin;
 use crate::menu::MenuPlugin;
+use crate::networking::NetworkingPlugin;
 use crate::player::PlayerPlugin;
 
 use bevy::app::App;
 use bevy::prelude::*;
-use naia_bevy_server::{Plugin as ServerPlugin, ServerConfig, Stage};
-use shared::{shared_config, Channels, Protocol};
 
 // This example game uses States to separate logic
 // See https://bevy-cheatbook.github.io/programming/states.html
@@ -41,9 +41,6 @@ impl Plugin for GamePlugin {
             .add_plugin(InternalAudioPlugin)
             .add_plugin(PlayerPlugin)
             .add_plugin(DevPlugin)
-            .add_plugin(ServerPlugin::<Protocol, Channels>::new(
-                ServerConfig::default(),
-                shared_config(),
-            ));
+            .add_plugin(NetworkingPlugin);
     }
 }

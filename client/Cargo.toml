@@ -15,7 +15,8 @@ default = [
 ]
 
 dev = [
-    "bevy/dynamic",
+    # not supported for wasm32-unknown-unknown
+    # "bevy/dynamic",
     "bevy-inspector-egui",
     "bevy_editor_pls"
 ]
