@@ -20,6 +20,7 @@ pub fn authorization(
             } else {
                 // Reject incoming connection
                 server.reject_connection(user_key);
+                log::info!("Rejected connection");
             }
         }
     }

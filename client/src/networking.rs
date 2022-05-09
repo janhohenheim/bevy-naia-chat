@@ -1,4 +1,5 @@
 mod events;
+use bevy::log;
 use bevy::prelude::*;
 use naia_bevy_client::{Client, ClientConfig, Plugin as ClientPlugin, Stage};
 use shared::{protocol, shared_config, Channels, Protocol};
@@ -17,6 +18,7 @@ impl Plugin for NetworkingPlugin {
 }
 
 fn auth(mut commands: Commands, mut client: Client<Protocol, Channels>) {
+    log::info!("Authenticating...");
     client.auth(protocol::Auth::new("charlie", "12345"));
     client.connect("http://127.0.0.1:14191");
 }

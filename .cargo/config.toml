@@ -22,7 +22,9 @@ rustflags = ["-Zshare-generics=n"]
 [alias]
 serve = "run --target wasm32-unknown-unknown -p client"
 build-client = "build --features dev -p client"
+run-client = "run --features dev -p client"
 build-server = "build --features dev --features use-udp -p server"
+run-server = "run --features dev --features use-udp -p server"
 
 [target.wasm32-unknown-unknown]
 runner = "wasm-server-runner"
