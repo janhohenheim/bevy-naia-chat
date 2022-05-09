@@ -17,7 +17,7 @@ impl Plugin for NetworkingPlugin {
     }
 }
 
-fn auth(mut commands: Commands, mut client: Client<Protocol, Channels>) {
+fn auth(mut client: Client<Protocol, Channels>) {
     log::info!("Authenticating...");
     client.auth(protocol::Auth::new("charlie", "12345"));
     client.connect("http://127.0.0.1:14191");

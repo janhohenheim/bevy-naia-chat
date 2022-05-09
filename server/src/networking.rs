@@ -16,7 +16,7 @@ impl Plugin for NetworkingPlugin {
     }
 }
 
-fn init(mut commands: Commands, mut server: Server<Protocol, Channels>) {
+fn init(mut server: Server<Protocol, Channels>) {
     info!("Naia Bevy Server Demo is running");
 
     // Naia Server initialization
@@ -36,7 +36,7 @@ fn init(mut commands: Commands, mut server: Server<Protocol, Channels>) {
 
     // Create a new, singular room, which will contain Users and Entities that they
     // can receive updates from
-    let main_room_key = server.make_room().key();
+    let _main_room_key = server.make_room().key();
 
     // Resources
     /*/

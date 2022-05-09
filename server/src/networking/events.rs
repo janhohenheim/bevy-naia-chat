@@ -1,10 +1,6 @@
 use bevy::log;
 use bevy::prelude::*;
-use naia_bevy_server::{
-    events::{AuthorizationEvent, ConnectionEvent, DisconnectionEvent, MessageEvent},
-    shared::Random,
-    Server,
-};
+use naia_bevy_server::{events::AuthorizationEvent, Server};
 use shared::{Channels, Protocol};
 
 pub fn authorization(

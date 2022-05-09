@@ -6,7 +6,7 @@ use bevy_editor_pls::prelude::*;
 use bevy_inspector_egui::WorldInspectorPlugin;
 
 #[cfg(debug_assertions)]
-use bevy::diagnostic::{FrameTimeDiagnosticsPlugin, LogDiagnosticsPlugin};
+use bevy::diagnostic::LogDiagnosticsPlugin;
 
 /// Plugin with debugging utility intendend for use during development only.
 /// Will not do anything when used in a release build.
